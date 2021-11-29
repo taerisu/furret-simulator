@@ -55,10 +55,13 @@ let scoreElement = document.getElementById('score')
 
 get()
 
-function sync() {
+function sync(timeout) {
 	localStorage.score = score
+
+	setTimeout(sync, 5000)
 }
 
 score = localStorage.score ? localStorage.score : 0
 
-setTimeout(sync, 5000)
+sync(5000)
+
