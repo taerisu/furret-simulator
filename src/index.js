@@ -40,10 +40,9 @@ function success(pos) {
 	x2 = crd.latitude
 	y2 = crd.longitude
 
-	score =
-		Number(score) + Number(measure(x1, y1, x2, y2) * 1000)
+	score = Number(measure(x1, y1, x2, y2) * 1000)
 
-	scoreElement.innerHTML = score
+	if (score != NaN) scoreElement.innerHTML = score
 }
 
 let x1,
