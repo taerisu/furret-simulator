@@ -1,0 +1,16 @@
+{
+	"name": "furret-simulator",
+	"version": "1.0.0",
+	"description": "",
+	"main": "./src/index.html",
+	"scripts": {
+		"format": "prettier --write ./",
+		"dev": "live-server ./src"
+	},
+	"keywords": [],
+	"author": "Zamur650",
+	"license": "MIT",
+	"devDependencies": {
+		"prettier": "^2.4.1"
+	}
+}
