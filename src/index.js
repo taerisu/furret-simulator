@@ -29,7 +29,7 @@ function measure(lat1, lon1, lat2, lon2) {
 	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
 	var d = R * c
 
-	return d == NaN ? d * 1000 : 0
+	return d * 1000
 }
 
 function success(pos) {
@@ -45,7 +45,6 @@ function success(pos) {
 
 	scoreElement.innerHTML = score
 }
-
 
 let x1,
 	x2,
