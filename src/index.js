@@ -9,11 +9,11 @@ function error(err) {
 function get() {
 	navigator.geolocation.getCurrentPosition(success, error, {
 		enableHighAccuracy: true,
-		timeout: 5000,
+		timeout: 1000,
 		maximumAge: 0
 	})
 
-	setTimeout(get, 5000)
+	setTimeout(get, 1000)
 }
 
 function measure(lat1, lon1, lat2, lon2) {
@@ -40,13 +40,12 @@ function success(pos) {
 	x2 = crd.latitude
 	y2 = crd.longitude
 
-	localStorage.score =
-		Number(localStorage.score) + Number(measure(x1, y1, x2, y2) / 5)
+	score =
+		Number(score) + Number(measure(x1, y1, x2, y2) * 1000)
 
-	scoreElement.innerHTML = localStorage.score
+	scoreElement.innerHTML = score
 }
 
-if (!localStorage?.score) localStorage.score = 0
 
 let x1,
 	x2,
@@ -55,3 +54,11 @@ let x1,
 let scoreElement = document.getElementById('score')
 
 get()
+
+function sync() {
+	localStorage.score = score
+}
+
+score = localStorage.score ? localStorage.score : 0
+
+setTimeout(sync, 20000)
