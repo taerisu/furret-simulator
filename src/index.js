@@ -42,7 +42,7 @@ function success(pos) {
 
 	score = Number(score) + Number(measure(x1, y1, x2, y2))
 
-	if (isNaN(score)) score = 0
+	if (isNaN(score)) score = localStorage.score
 		
 	scoreElement.innerHTML = Math.round(score)
 }
@@ -61,4 +61,4 @@ function sync() {
 
 score = localStorage.score ? localStorage.score : 0
 
-setTimeout(sync, 20000)
+setTimeout(sync, 5000)
